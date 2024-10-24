@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Link to CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Language Translator (English to Tulu)</h1>
+        
+        <form method="POST" action="/translate">
+            <label for="word">Enter English word:</label>
+            <input type="text" id="word" name="word" required placeholder="Type a word...">
+            
+            <!-- Button container to center the button -->
+            <div class="button-container">
+                <button class="button">
+                    <svg class="svgIcon bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25">
+                        <path d="M12 2C10.3 2 9 3.3 9 5v1.1C5.8 7.3 3 10.6 3 14v2h18v-2c0-3.4-2.8-6.7-6-7.9V5c0-1.7-1.3-3-3-3zm-1 19c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z"/>
+                    </svg>
+                    Translate
+                </button>
+            </div>
+        </form>
+        
+        <!-- results  -->
+        {% if translation %}
+            <h2>Translation Result:</h2>
+            <p class="translation-result"><strong>{{ translation }}</strong></p>
+        {% endif %}
+    </div>
+</body>
+</html>
